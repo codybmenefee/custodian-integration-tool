@@ -1,43 +1,37 @@
 {
-  "name": "custodiandemo",
+  "name": "custodian-integration-tool",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint src --ext .ts,.tsx",
-    "test": "jest",
-    "dev:server": "nodemon --exec ts-node src/server.ts",
-    "dev:all": "concurrently \"npm run dev\" \"npm run dev:server\""
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "build": "npm run build --workspaces",
+    "start": "npm run start --workspace=server",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "test": "npm run test --workspaces"
   },
-  "keywords": [],
+  "keywords": [
+    "custodian",
+    "integration",
+    "fintech"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@types/express": "^5.0.0",
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/mongoose": "^5.11.96",
-    "@types/node": "^22.13.10",
-    "@types/react": "^19.0.11",
-    "@types/react-dom": "^19.0.4",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.12.1",
-    "next": "^15.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
-  },
+  "description": "A tool to automate custodian integration patterns for wealth tech platforms",
   "devDependencies": {
-    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.22.0",
-    "jest": "^29.7.0",
-    "nodemon": "^3.1.9",
-    "prettier": "^3.5.3",
-    "ts-jest": "^29.2.6"
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.0",
+    "prettier": "^3.5.3"
   }
 }
