@@ -10,11 +10,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^3.13.0",
+    "@sentry/browser": "^7.108.0",
+    "@sentry/react": "^7.108.0",
     "axios": "^1.6.7",
     "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.51.0",
+    "react-router-dom": "^7.3.0",
     "shared": "*"
   },
   "devDependencies": {
@@ -32,4 +38,4 @@
     "ts-jest": "^29.2.6",
     "typescript": "^5.8.2"
   }
-} 
+}

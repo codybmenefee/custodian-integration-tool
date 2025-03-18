@@ -3,7 +3,26 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  password?: string; // Optional as we don't want to expose this in all contexts
   role: UserRole;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface UserLoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface UserRegistrationRequest {
+  email: string;
+  password: string;
+  name: string;
+}
+
+export interface AuthResponse {
+  token: string;
+  user: Omit<User, 'password'>;
 }
 
 export enum UserRole {
@@ -37,6 +56,9 @@ export interface Schema {
   createdBy: string;
   createdAt: Date;
   updatedAt: Date;
+  parentSchema?: string;
+  isLatestVersion: boolean;
+  versionNotes?: string;
 }
 
 export interface SchemaField {
@@ -78,4 +100,32 @@ export interface MappingRule {
   targetField: string;
   transformation?: string;
   confidence?: number;
+}
+
+// New interfaces for Schema versioning
+export interface SchemaVersion {
+  id: string;
+  version: string;
+  createdAt: Date;
+  isLatestVersion: boolean;
+  versionNotes?: string;
+}
+
+export interface SchemaComparison {
+  added: SchemaField[];
+  removed: SchemaField[];
+  modified: {
+    field: string;
+    before: Partial<SchemaField>;
+    after: Partial<SchemaField>;
+  }[];
+}
+
+export interface SchemaExport {
+  schema: Schema;
+  metadata: {
+    exportedAt: Date;
+    exportedBy: string;
+    version: string;
+  };
 } 

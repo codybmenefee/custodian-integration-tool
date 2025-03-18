@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectToDatabase } from './config/database';
+import authRoutes from './routes/auth';
+import documentRoutes from './routes/documents';
+import schemaRoutes from './routes/schemas';
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.send('Custodian Integration Tool API is running');
 });
+
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/documents', documentRoutes);
+app.use('/api/schemas', schemaRoutes);
 
 // Connect to MongoDB
 connectToDatabase()

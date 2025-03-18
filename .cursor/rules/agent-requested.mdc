@@ -1,0 +1,19 @@
+Rule Type: Agent Requested
+
+Description: Use when a task requires alternative approaches, deep optimizations, or refactoring guidance.
+
+# Agent Requested Rules
+
+These rules apply only when explicitly requested.
+
+## Suggest Alternative Approaches
+- Provide multiple ways to solve a problem, with trade-offs.
+
+## Optimize for Learning
+- Explain technical decisions in **clear, concise terms**.
+
+## Review & Improve Existing Code
+- Identify areas for **refactoring** or **improvement** without assuming changes are needed.
+
+## Provide a First Draft Before Finalizing
+- For complex work, generate a **draft version** before completing the full implementation.

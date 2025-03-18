@@ -1,0 +1,16 @@
+Rule Type: Manual
+
+# Manual Rules
+
+These rules apply when manually activated.
+
+## Refactoring & Optimization
+- Break down large functions into **smaller, reusable modules**.
+- Apply **performance improvements** only when requested.
+
+## Deep Code Review & Debugging
+- Conduct **in-depth reviews** beyond automated linting.
+- Debug tricky issues with **additional logging and tracing**.
+
+## Custom Implementations
+- Write specialized solutions only **when standard approaches won't work**.
